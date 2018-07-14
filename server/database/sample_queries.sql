@@ -4,8 +4,7 @@ AND is_available;
 
 
 SELECT
-  p.first_name,
-  p.last_name,
+  p.full_name,
   v.vaccine_name,
   v.recommendation_text
   FROM patients p
