@@ -1,7 +1,7 @@
-SELECT COUNT(*) as num_rooms_available FROM schedule
-WHERE timestamp = '2018-08-06Z09:00:00'
-AND is_available;
-
+SELECT timestamp
+FROM public.schedule
+WHERE num_resources_available >= 2
+ORDER BY timestamp;
 
 SELECT
   p.full_name,
