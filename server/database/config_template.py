@@ -1,4 +1,5 @@
 db_name = 'vaccine_clinic.db'
+backup_database_file = ''
 
 mysql_db = ''
 mysql_host = ''

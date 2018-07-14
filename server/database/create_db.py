@@ -129,12 +129,20 @@ def get_all_recommendations(conn, first_name, last_name):
     return df
 
 
+def backup_database(conn):
+    with open(config.backup_database_file, 'w') as f:
+        for line in conn.iterdump():
+            f.write('%s\n' % line)
+
+
 if __name__ == '__main__':
     connection = get_sqlite_conn()
     create_patients_table(connection)
     create_schedule_table(connection)
     create_vaccine_logic_table(connection)
     create_vaccine_demos_table(connection)
+
+    backup_database(connection)
 
     print(get_all_recommendations(connection, 'Abhi', 'Patel').head())
     print(get_all_recommendations(connection, 'John', 'Doe').head())
